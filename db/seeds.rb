@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'active_record/fixtures'
+
+fixtures_dir = File.join(Rails.root, '/test/fixtures')
+
+Dir.glob(File.join(fixtures_dir,'*.yml')).each do |file|
+  base_name = File.basename(file, '.*')
+  ActiveRecord::FixtureSet.create_fixtures(fixtures_dir, base_name)
+end
+
+user = User.new
+user.email = 'adam_ruby@126.com'
+puts ENV['adam_password']
+user.password = ENV['adam_password']
+user.password_confirmation = ENV['adam_password']
+user.save!
+
+user.check_cards = CheckCard.all
+user.save!
