@@ -10,7 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210021436) do
+ActiveRecord::Schema.define(version: 20170215021247) do
+
+  create_table "check_cards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.integer  "level"
+    t.integer  "submit_times"
+    t.integer  "finish_times"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_check_cards_on_user_id"
+  end
+
+  create_table "check_items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "label"
+    t.integer  "level"
+    t.integer  "submit_times"
+    t.integer  "finish_times"
+    t.integer  "check_card_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["check_card_id"], name: "index_check_items_on_check_card_id"
+  end
+
+  create_table "check_records", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "check_card_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["check_card_id"], name: "index_check_records_on_check_card_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
