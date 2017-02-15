@@ -4,8 +4,47 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+no_snack_food:
+  name: no_snack_food
+  label: 不吃零食
+  check_card: diarly_lose_weight
+
+eat_less:
+  name: eat_less
+  label: 吃七分饱
+  check_card: diarly_lose_weight
+
+practice:
+  name: practice
+  label: 至少锻炼40分钟
+  check_card: diarly_lose_weight
+
+tips:
+  name: tips
+  label: 3个Tips
+  check_card: diarly_learn
+
+words:
+  name: words
+  label: 5个英文单词
+  check_card: diarly_learn
+
+article:
+  name: article
+  label: 1篇深度博文
+  check_card: diarly_learn
+
+read_book:
+  name: read_book
+  label: 阅读2本书
+  check_card: monthly_task
+
+practice_last_long:
+  name: practice_last_long
+  label: 进行4次长时间运动
+  check_card: monthly_task
+
+read_code:
+  name: read_code
+  label: 阅读1个开源项目的源码
+  check_card: monthly_task
