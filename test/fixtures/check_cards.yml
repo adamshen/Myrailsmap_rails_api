@@ -7,11 +7,14 @@
 diarly_lose_weight:
   name: diarly_lose_weight
   title: 每日减重
+  period: diarly
 
 diarly_learn:
   name: diarly_learn
   title: 每日学习
+  period: diarly
 
 monthly_task:
   name: monthly_task
   title: 月打卡项
+  period: monthly
