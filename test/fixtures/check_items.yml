@@ -7,32 +7,32 @@
 no_snack_food:
   name: no_snack_food
   label: 不吃零食
-  check_card: diarly_lose_weight
+  check_card: daily_lose_weight
 
 eat_less:
   name: eat_less
   label: 吃七分饱
-  check_card: diarly_lose_weight
+  check_card: daily_lose_weight
 
 practice:
   name: practice
   label: 至少锻炼40分钟
-  check_card: diarly_lose_weight
+  check_card: daily_lose_weight
 
 tips:
   name: tips
   label: 3个Tips
-  check_card: diarly_learn
+  check_card: daily_learn
 
 words:
   name: words
   label: 5个英文单词
-  check_card: diarly_learn
+  check_card: daily_learn
 
 article:
   name: article
   label: 1篇深度博文
-  check_card: diarly_learn
+  check_card: daily_learn
 
 read_book:
   name: read_book
