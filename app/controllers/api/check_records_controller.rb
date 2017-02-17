@@ -24,7 +24,6 @@ class Api::CheckRecordsController < ApplicationController
     check_result = params[:check_result]
     check_card = CheckCard.find(params[:check_card_id])
     raise ApplicationController::Forbidden  unless current_api_user == check_card.user
-    # Todo: check if result match items
 
     check_record = CheckRecord.create!(check_card_id: check_card.id, content: check_result)
     render json: check_record
