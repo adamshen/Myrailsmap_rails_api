@@ -19,13 +19,14 @@ class Api::CheckRecordsController < ApplicationController
   end
 
   def create
-    requires! :check_card_id, :check_result
+    requires! :check_card_id, :check_result, :check_time
 
     check_result = params[:check_result]
     check_card = CheckCard.find(params[:check_card_id])
-    raise ApplicationController::Forbidden  unless current_api_user == check_card.user
+    raise ApplicationController::Forbidden unless current_api_user == check_card.user
 
-    check_record = CheckRecord.create!(check_card_id: check_card.id, content: check_result)
+    check_record = CheckRecord.create!(check_card_id: check_card.id, content: check_result,
+                                       check_time: params[:check_time].to_time)
     render json: check_record
   end
 end

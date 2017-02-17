@@ -10,6 +10,10 @@ class ApplicationController < ActionController::API
     end
   end
 
+  rescue_from(ActiveRecord::RecordInvalid) do |err|
+    render json: { error: 'RecordInvalid', message: err }, status: :unprocessable_entity
+  end
+
   rescue_from(ActionController::ParameterMissing) do |err|
     render json: { error: 'ParameterInvalid', message: err }, status: :bad_request
   end
