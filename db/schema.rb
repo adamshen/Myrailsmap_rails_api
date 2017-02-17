@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216062643) do
+ActiveRecord::Schema.define(version: 20170217025344) do
 
   create_table "check_cards", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170216062643) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "clear"
+    t.datetime "check_time"
     t.index ["check_card_id"], name: "index_check_records_on_check_card_id"
   end
 
