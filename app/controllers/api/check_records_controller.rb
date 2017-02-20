@@ -25,8 +25,9 @@ class Api::CheckRecordsController < ApplicationController
     check_card = CheckCard.find(params[:check_card_id])
     raise ApplicationController::Forbidden unless current_api_user == check_card.user
 
-    check_record = CheckRecord.create!(check_card_id: check_card.id, content: check_result,
-                                       check_time: params[:check_time].to_time)
-    render json: check_record
+    check_card.check_records.create!(check_card_id: check_card.id, content: check_result,
+                                  check_time: params[:check_time].to_time)
+
+    render json: check_card.serializable_hash(methods: [:check_items, :record_in_period])
   end
 end
