@@ -8,52 +8,52 @@ no_snack_food:
   id: 1
   name: no_snack_food
   label: 不吃零食
-  check_card: daily_lose_weight
+  check_card_id: 1
 
 eat_less:
   id: 2
   name: eat_less
   label: 吃七分饱
-  check_card: daily_lose_weight
+  check_card_id: 1
 
 practice:
   id: 3
   name: practice
   label: 至少锻炼40分钟
-  check_card: daily_lose_weight
+  check_card_id: 1
 
 tips:
   id: 4
   name: tips
   label: 3个Tips
-  check_card: daily_learn
+  check_card_id: 2
 
 words:
   id: 5
   name: words
   label: 5个英文单词
-  check_card: daily_learn
+  check_card_id: 2
 
 article:
   id: 6
   name: article
   label: 1篇深度博文
-  check_card: daily_learn
+  check_card_id: 2
 
 read_book:
   id: 7
   name: read_book
   label: 阅读2本书
-  check_card: monthly_task
+  check_card_id: 3
 
 practice_last_long:
   id: 8
   name: practice_last_long
   label: 进行4次长时间运动
-  check_card: monthly_task
+  check_card_id: 3
 
 read_code:
   id: 9
   name: read_code
   label: 阅读1个开源项目的源码
-  check_card: monthly_task
+  check_card_id: 3

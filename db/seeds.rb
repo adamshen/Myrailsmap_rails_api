@@ -1,6 +1,6 @@
 require 'active_record/fixtures'
 
-fixtures_dir = File.join(Rails.root, '/test/fixtures')
+fixtures_dir = File.join(Rails.root, '/db/seeds')
 
 Dir.glob(File.join(fixtures_dir,'*.yml')).each do |file|
   base_name = File.basename(file, '.*')
