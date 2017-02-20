@@ -5,16 +5,19 @@
 # below each fixture, per the syntax in the comments below
 #
 daily_lose_weight:
+  id: 1
   name: daily_lose_weight
   title: 每日减重
   period: daily
 
 daily_learn:
+  id: 2
   name: daily_learn
   title: 每日学习
   period: daily
 
 monthly_task:
+  id: 3
   name: monthly_task
   title: 月打卡项
   period: monthly
