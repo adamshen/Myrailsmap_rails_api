@@ -18,12 +18,17 @@ class CheckRecord < ApplicationRecord
   end
 
   def only_one_in_period
-    errors.add(:already_checked, ' - this card is already checked in this period') if already_check_in_period?
+    record_in_period = find_checked_in_period(check_time)
+
+    if new_record?
+      errors.add(:checked, ' - already checked in this period') if record_in_period
+    else
+      errors.add(:existed, ' - record in this period is existed') unless self.id == record_in_period&.id
+    end
   end
 
-  private
-  def already_check_in_period?
-    time_cst = check_time.in_time_zone("Beijing")
+  def find_checked_in_period(time)
+    time_cst = time.in_time_zone("Beijing")
 
     period_range = case check_card.period
                      when 'daily'
@@ -34,6 +39,6 @@ class CheckRecord < ApplicationRecord
                        time_cst.beginning_of_month..time_cst.end_of_month
                    end
 
-    CheckRecord.where(check_card: check_card, check_time: period_range).any?
+    CheckRecord.where(check_card: check_card, check_time: period_range).try(:take)
   end
 end
