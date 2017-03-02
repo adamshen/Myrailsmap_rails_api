@@ -14,6 +14,12 @@ class Api::ArticlesController < ApplicationController
     render json: article
   end
 
+  def index
+    # Todo: page & group
+    articles = Article.all.select(:id, :title)
+    render json: articles
+  end
+
   def article_params
     params.require(:article).permit(:title, :content)
   end
