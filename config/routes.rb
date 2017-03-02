@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     mount_devise_token_auth_for 'User', at: 'auth'
     get 'check_cards/search', to: 'check_cards#search'
+
+    resources :articles
+
     resources :check_records do
       collection do
         get 'count'

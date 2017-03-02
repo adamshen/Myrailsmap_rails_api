@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217025344) do
+ActiveRecord::Schema.define(version: 20170227020550) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "article_topics", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "article_topic_id"
+    t.index ["article_topic_id"], name: "index_articles_on_article_topic_id", using: :btree
+  end
 
   create_table "check_cards", force: :cascade do |t|
     t.string   "name"
@@ -22,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170217025344) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.string   "period"
-    t.index ["user_id"], name: "index_check_cards_on_user_id"
+    t.index ["user_id"], name: "index_check_cards_on_user_id", using: :btree
   end
 
   create_table "check_items", force: :cascade do |t|
@@ -34,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170217025344) do
     t.integer  "check_card_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["check_card_id"], name: "index_check_items_on_check_card_id"
+    t.index ["check_card_id"], name: "index_check_items_on_check_card_id", using: :btree
   end
 
   create_table "check_records", force: :cascade do |t|
@@ -44,7 +62,7 @@ ActiveRecord::Schema.define(version: 20170217025344) do
     t.datetime "updated_at",    null: false
     t.boolean  "clear"
     t.datetime "check_time"
-    t.index ["check_card_id"], name: "index_check_records_on_check_card_id"
+    t.index ["check_card_id"], name: "index_check_records_on_check_card_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,10 +88,11 @@ ActiveRecord::Schema.define(version: 20170217025344) do
     t.text     "tokens"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
+  add_foreign_key "articles", "article_topics"
 end
