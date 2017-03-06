@@ -2,9 +2,8 @@ class Api::ArticlesController < ApplicationController
   before_action :authenticate_api_user!, only: :create
 
   def create
-    requires! :topic, :title, :content
+    requires! :article_topic_id, :title, :content
 
-    topic = ArticleTopic.find_by_name!(params[:topic])
     article = topic.articles.create!(article_params)
     render json: { id: article.id }
   end
@@ -14,10 +13,25 @@ class Api::ArticlesController < ApplicationController
     render json: article
   end
 
+  def update
+    requires! :article_topic_id, :title, :content
+
+    article = Article.find(params[:id])
+    article.article_topic = topic
+    article.update(article_params)
+
+    render json: { id: article.id }
+  end
+
   def index
     # Todo: page & group
     articles = Article.all.select(:id, :title)
     render json: articles
+  end
+
+  private
+  def topic
+    ArticleTopic.find(params[:article_topic_id])
   end
 
   def article_params

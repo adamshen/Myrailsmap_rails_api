@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
     resources :articles
 
+    resources :article_topics
+
     resources :check_records do
       collection do
         get 'count'
