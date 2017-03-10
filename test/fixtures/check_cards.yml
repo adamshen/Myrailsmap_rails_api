@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+daily:
+  name: check_card_1
+  title: check_card_1_title
+  period: daily
+
+weekly:
+  name: check_card_2
+  title: check_card_2_title
+  period: weekly
+
+monthly:
+  name: check_card_3
+  title: check_card_3_title
+  period: monthly

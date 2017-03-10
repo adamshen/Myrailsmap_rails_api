@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  content: MyText
+  title: TestArticleTitle1
+  content: TestArticleContent1...balabala
+  article_topic: topic1
 
 two:
-  title: MyString
-  content: MyText
+  title: TestArticleTitle2
+  content: TestArticleContent2...balabala
+  article_topic: topic2
