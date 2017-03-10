@@ -20,7 +20,8 @@ gem 'omniauth', '~> 1.0'
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
-  gem 'pry-byebug'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do

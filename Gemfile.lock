@@ -41,7 +41,6 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     builder (3.2.3)
-    byebug (9.0.6)
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
     devise (4.2.0)
@@ -54,6 +53,13 @@ GEM
       devise (> 3.5.2, <= 4.2)
       rails (< 6)
     erubis (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
+    faker (1.6.6)
+      i18n (~> 0.5)
     ffi (1.9.17)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -84,9 +90,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.4.2)
-      byebug (~> 9.0)
-      pry (~> 0.10)
     pry-rails (0.3.5)
       pry (>= 0.9.10)
     puma (3.7.0)
@@ -152,11 +155,12 @@ PLATFORMS
 DEPENDENCIES
   devise
   devise_token_auth
+  factory_girl_rails
+  faker
   listen (~> 3.0.5)
   omniauth (~> 1.0)
   pg
   pry
-  pry-byebug
   pry-rails
   puma (~> 3.0)
   rack-cors

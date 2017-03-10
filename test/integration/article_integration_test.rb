@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class Api::ArticlesControllerTest < ActionDispatch::IntegrationTest
-  test 'should get articles' do
+class ArticleIntegrationTest < ActionDispatch::IntegrationTest
+  test "should get articles" do
     get api_articles_url
     assert_json_collection response_json_body, %w(id title)
   end
 
-  test 'should get article' do
+  test "should get article" do
     get api_articles_url
     id = response_json_body.sample.fetch('id')
 
