@@ -17,6 +17,9 @@ gem 'devise_token_auth'
 gem 'devise'
 gem 'omniauth', '~> 1.0'
 
+# tools
+gem 'kramdown'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
