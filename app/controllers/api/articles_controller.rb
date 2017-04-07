@@ -21,7 +21,7 @@ class Api::ArticlesController < ApplicationController
 
   def index
     # Todo: page & group
-    articles = Article.all.select(:id, :title)
+    articles = Article.all.select(:id, :title, :toc)
     render json: articles
   end
 
